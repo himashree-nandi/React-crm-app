@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { userSignIn, userSignUp } from "../api/auth";
+
 export default function Login() {
   const [showSignup, setshowSignup] = useState(false);
   const [userType, setUsertype] = useState("CUSTOMER");
@@ -27,7 +27,7 @@ export default function Login() {
       window.location.href = "/admin";
     }
   }, []);
-  //-----onClick event for change the login page and signIn page----
+  //  onClick event for change the login page and signIn page
   const toggleSignup = () => {
     clearState();
     setshowSignup(!showSignup);
@@ -44,7 +44,7 @@ export default function Login() {
     setError(false);
     setMessage("");
   };
-  //---- onChange event handler for all inputs---------
+  //   onChange event handler for all inputs
   const handleChange = (e) => {
     const id = e.target.id;
 
@@ -59,7 +59,7 @@ export default function Login() {
     }
   };
 
-  //---------------On Submit function for Signin page------------
+  //  On Submit function for Signin page
   function onSubmitSignup(e) {
     const data = {
       name: userName,
@@ -69,7 +69,8 @@ export default function Login() {
       userType: userType,
     };
     e.preventDefault();
-    //------Validation-------------
+
+    //  Validation
     if (userId.length < 5) {
       setError(true);
       setMessage("userId should of 5 to 15 character");
@@ -87,7 +88,7 @@ export default function Login() {
       setMessage("Email is required");
       return;
     }
-    // ----- Api call
+    //  Api call
     userSignUp(data)
       .then((res) => {
         console.log(res);
@@ -103,12 +104,12 @@ export default function Login() {
       });
   }
 
+  // On Submit function for login page
   function onSubmitLogin(e) {
     const data = { userId, password };
     e.preventDefault();
     userSignIn(data)
       .then((res) => {
-        console.log(res);
         setError(false);
         setMessage("LogIn successful");
         localStorage.setItem("userId", res.data.userId);
