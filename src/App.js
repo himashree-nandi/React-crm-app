@@ -5,6 +5,7 @@ import Engineer from "./Pages/Engineer";
 import Customer from "./Pages/Customer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
+import Auth from "./hoc/Auth";
 
 function App() {
   const defaultMaterialTheme = createTheme();
@@ -12,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={defaultMaterialTheme}>
+        <Auth></Auth>
         <Router>
           <Routes>
             <Route path="/" element={<Login />}></Route>
