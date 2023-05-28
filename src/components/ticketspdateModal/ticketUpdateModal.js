@@ -1,7 +1,9 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
+import { fetchDisabledFields } from "../../utils/fetchDisabledFieldsData";
 
 export default function TicketUpdateModal(props) {
+  const disabledFields = fetchDisabledFields();
   const {
     selectCurrentTickets,
     ticketUpdateModal,
@@ -28,6 +30,7 @@ export default function TicketUpdateModal(props) {
               className="form-control"
               type="text"
               name="title"
+              disabled={disabledFields.title}
               value={selectCurrentTickets.title}
               onChange={props.onChangeTickets}
             />
@@ -38,6 +41,8 @@ export default function TicketUpdateModal(props) {
               className="form-control"
               type="text"
               name="assignee"
+              disabled={disabledFields.assignee}
+
               value={selectCurrentTickets.assignee}
               onChange={onChangeTickets}
             />
@@ -48,6 +53,8 @@ export default function TicketUpdateModal(props) {
               className="form-control"
               type="text"
               name="status"
+              disabled={disabledFields.status}
+
               value={selectCurrentTickets.status}
               onChange={onChangeTickets}
             />
@@ -58,6 +65,8 @@ export default function TicketUpdateModal(props) {
               className="form-control"
               type="text"
               name="priority"
+              disabled={disabledFields.ticketPriority}
+
               value={selectCurrentTickets.ticketPriority}
               onChange={onChangeTickets}
             />
@@ -66,6 +75,8 @@ export default function TicketUpdateModal(props) {
             <textarea
               type="text"
               name="description"
+              disabled={disabledFields.description}
+
               onChange={onChangeTickets}
               className="form-control mb-2 md-textarea"
               value={selectCurrentTickets.description}
