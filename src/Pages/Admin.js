@@ -9,9 +9,10 @@ import TicketsTable from "../components/TicketsTable/ticketsTable";
 import TicketUpdateModal from "../components/ticketspdateModal/ticketUpdateModal";
 import UsersTable from "../components/usersTable/usersTable";
 import UserUpdateModal from "../components/userUpdateModal/userUpdateModal";
+import constants from "../utils/constants";
 export default function Admin() {
-  const [ticketDetails, fetchTickets] = useFetchTickets();
-  const [userDetails, fetchUsers] = useFetchUsers();
+  const [ticketDetails] = useFetchTickets();
+  const [userDetails] = useFetchUsers();
 
   const [
     editUsers,
@@ -30,12 +31,15 @@ export default function Admin() {
     onChangeTickets,
     submitTickets,
   ] = useTicketUpdate();
-
+  const userType = localStorage.getItem("userType");
+  if (userType !== constants.constUserTypes.admin) {
+    return <h1>Insufficient permissions to access this page</h1>;
+  }
   return (
     <div
       className="row text-align-center"
       style={{
-        background: "linear-gradient(to right ,white,rgb(115,219,222))",
+        background: "linear-gradient(to right ,white,rgb(173, 222, 232))",
       }}
     >
       <div className="col-1">

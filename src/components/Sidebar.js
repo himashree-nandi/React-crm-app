@@ -5,11 +5,8 @@ import {
   CSidebarNav,
   CSidebarToggler,
 } from "@coreui/react";
+import { Logout } from "../handlers/Logout";
 export default function Sidebar() {
- const logOut=()=>{
-  localStorage.clear();
-  window.location.href="/";
- }
   return (
     <div>
       <CSidebar unfoldable className="vh-100 bg-black">
@@ -21,10 +18,10 @@ export default function Sidebar() {
             <i className="bi bi-house"></i>
             <div className="text-white mx-5 text-decoration-none">Home</div>
           </CNavItem>
-          <div onClick={logOut}>
+          <div onClick={Logout}>
             <CNavItem href="#">
               <i className="bi bi-arrow-bar-left"></i>
-              <div className="text-white mx-5 text-decoration-none" >Logout</div>
+              <div className="text-white mx-5 text-decoration-none">Logout</div>
             </CNavItem>
           </div>
         </CSidebarNav>

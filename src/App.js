@@ -5,21 +5,30 @@ import Engineer from "./Pages/Engineer";
 import Customer from "./Pages/Customer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
-import Auth from "./hoc/Auth";
-
+import Auth from "./HOCs/Auth";
 function App() {
   const defaultMaterialTheme = createTheme();
-
   return (
     <div className="App">
       <ThemeProvider theme={defaultMaterialTheme}>
-        <Auth></Auth>
         <Router>
           <Routes>
-            <Route path="/" element={<Login />}></Route>
-            <Route path="/customer" element={<Customer />}></Route>
-            <Route path="/engineer" element={<Engineer />}></Route>
-            <Route path="/admin" element={<Admin />}></Route>
+            <Route
+              path="/"
+              element={<Login />}></Route>
+            <Route
+              path="/customer"
+              page="customer"
+              element={<Auth 
+              ><Customer /></Auth>}></Route>
+            <Route
+              path="/engineer"
+              page="engineer"
+              element={<Auth 
+              ><Engineer /></Auth>}></Route>
+            <Route
+              path="/admin"
+              element={<Auth><Admin /></Auth>}></Route>
           </Routes>
         </Router>
       </ThemeProvider>
