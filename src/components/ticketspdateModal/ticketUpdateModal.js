@@ -42,22 +42,24 @@ export default function TicketUpdateModal(props) {
               type="text"
               name="assignee"
               disabled={disabledFields.assignee}
-
               value={selectCurrentTickets.assignee}
               onChange={onChangeTickets}
             />
           </div>
           <div className="input-group mb-2">
             <span className="input-group-text">Status </span>
-            <input
-              className="form-control"
-              type="text"
+            <select
+              className="form-select"
               name="status"
               disabled={disabledFields.status}
-
               value={selectCurrentTickets.status}
               onChange={onChangeTickets}
-            />
+            >
+              <option value="OPEN"> OPEN </option>
+              <option value="PROGRESS"> PROGRESS </option>
+              <option value="CLOSED"> CLOSED </option>
+              <option value="BLOCKED"> BLOCKED </option>
+            </select>
           </div>
           <div className="input-group mb-2">
             <span className="input-group-text">Priority </span>
@@ -66,7 +68,6 @@ export default function TicketUpdateModal(props) {
               type="text"
               name="priority"
               disabled={disabledFields.ticketPriority}
-
               value={selectCurrentTickets.ticketPriority}
               onChange={onChangeTickets}
             />
@@ -76,7 +77,6 @@ export default function TicketUpdateModal(props) {
               type="text"
               name="description"
               disabled={disabledFields.description}
-
               onChange={onChangeTickets}
               className="form-control mb-2 md-textarea"
               value={selectCurrentTickets.description}

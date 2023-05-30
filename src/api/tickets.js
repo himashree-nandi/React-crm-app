@@ -17,3 +17,11 @@ export async function updateTickets(ticket) {
     },
   });
 }
+
+export async function createNewTickets(ticket) {
+  return axios.post(`${BASE_URL}/crm/api/v1/tickets/`, ticket, {
+    headers: {
+      "x-access-token": localStorage.getItem("token"),
+    },
+  });
+}

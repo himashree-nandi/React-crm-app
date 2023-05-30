@@ -5,6 +5,8 @@ import { useFetchTickets } from "../hooks/useFetchTickets";
 import { useTicketUpdate } from "../hooks/useTicketUpdate";
 import TicketUpdateModal from "../components/ticketspdateModal/ticketUpdateModal";
 import TicketsTable from "../components/TicketsTable/ticketsTable";
+import TicketCreationModal from "../components/TicketCreationModal";
+import useCreateTicket from "../hooks/useCreateTicket";
 function Customer() {
   const [ticketDetails] = useFetchTickets();
   const [
@@ -15,7 +17,7 @@ function Customer() {
     onChangeTickets,
     submitTickets,
   ] = useTicketUpdate();
- 
+  const {onclose, createTicketModal, openTicketModal} = useCreateTicket();
   return (
     <div
       className="row text-align-center"
@@ -33,6 +35,13 @@ function Customer() {
           editTickets={editTickets}
           title={"TICKETS RAISED BY YOU"}
         />
+        <input
+          type="submit"
+          className="btn btn-primary mt-1"
+          style={{ width: "100%" }}
+          value="Create a ticket"
+          onClick={openTicketModal}
+        />
       </div>
       <TicketUpdateModal
         selectCurrentTickets={selectCurrentTickets}
@@ -41,6 +50,7 @@ function Customer() {
         onChangeTickets={onChangeTickets}
         submitTickets={submitTickets}
       />
+      <TicketCreationModal show={createTicketModal} onclose={onclose}/>
     </div>
   );
 }

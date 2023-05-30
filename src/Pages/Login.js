@@ -138,12 +138,12 @@ export default function Login() {
     <div
       className=" align-items-center justify-content-center d-flex vh-100"
       style={{
-        background: "linear-gradient(150deg,blue,black)",
+        background: "linear-gradient(150deg,rgb(50, 200, 90),black)",
       }}
     >
       <div
         className="card p-3 m-3 rounded shadow"
-        style={{ width: 30 + "rem" }}
+        style={{ width: 30 + "rem",backgroundColor:"rgb(223, 215, 215)" }}
       >
         <form onSubmit={showSignup ? onSubmitSignup : onSubmitLogin}>
           <h3 className="text-center">{showSignup ? "Sign up" : "Login"}</h3>
@@ -205,7 +205,7 @@ export default function Login() {
           )}
           <div className="input-group mb-2">
             <input
-              className="btn btn-primary form-control"
+              className="btn btn-success form-control text-white"
               type="submit"
               value={showSignup ? "Sign up" : "Log in"}
             ></input>
