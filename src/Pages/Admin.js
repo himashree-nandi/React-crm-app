@@ -9,7 +9,6 @@ import TicketsTable from "../components/TicketsTable/ticketsTable";
 import TicketUpdateModal from "../components/ticketspdateModal/ticketUpdateModal";
 import UsersTable from "../components/usersTable/usersTable";
 import UserUpdateModal from "../components/userUpdateModal/userUpdateModal";
-import constants from "../utils/constants";
 export default function Admin() {
   const [ticketDetails] = useFetchTickets();
   const [userDetails] = useFetchUsers();
@@ -31,15 +30,12 @@ export default function Admin() {
     onChangeTickets,
     submitTickets,
   ] = useTicketUpdate();
-  const userType = localStorage.getItem("userType");
-  if (userType !== constants.constUserTypes.admin) {
-    return <h1>Insufficient permissions to access this page</h1>;
-  }
+
   return (
     <div
       className="row text-align-center"
       style={{
-        background: "linear-gradient(to right ,white,rgb(173, 222, 232))",
+        background: "linear-gradient(to right ,rgb(173, 222, 232),pink)",
       }}
     >
       <div className="col-1">
@@ -49,7 +45,10 @@ export default function Admin() {
         <div className="container">
           <StatusDashBoard ticketDetails={ticketDetails} />
           <br />
-          <div style={{ maxWidth: "100%", cursor: "pointer" }}>
+          <div
+            className="m-1"
+            style={{ maxWidth: "100%", cursor: "pointer", fontWeight: "600" }}
+          >
             <UsersTable
               userDetails={userDetails}
               editUsers={editUsers}
@@ -66,7 +65,7 @@ export default function Admin() {
           />
           <br />
           <hr />
-          <div style={{ maxWidth: "100%" }}>
+          <div style={{ maxWidth: "100%", fontWeight: "600" }}>
             <TicketsTable
               ticketDetails={ticketDetails}
               editTickets={editTickets}

@@ -17,7 +17,7 @@ function Customer() {
     onChangeTickets,
     submitTickets,
   ] = useTicketUpdate();
-  const {onclose, createTicketModal, openTicketModal} = useCreateTicket();
+  const { onclose, createTicketModal, openTicketModal } = useCreateTicket();
   return (
     <div
       className="row text-align-center"
@@ -30,18 +30,21 @@ function Customer() {
       </div>
       <div className="col" style={{ maxWidth: "100%" }}>
         <StatusDashBoard ticketDetails={ticketDetails} />
-        <TicketsTable
-          ticketDetails={ticketDetails}
-          editTickets={editTickets}
-          title={"TICKETS RAISED BY YOU"}
-        />
-        <input
-          type="submit"
-          className="btn btn-primary mt-1"
-          style={{ width: "100%" }}
-          value="Create a ticket"
-          onClick={openTicketModal}
-        />
+        <br />
+        <div className="m-3" style={{ fontWeight: "600" }}>
+          <TicketsTable
+            ticketDetails={ticketDetails}
+            editTickets={editTickets}
+            title={"TICKETS RAISED BY YOU"}
+          />
+          <input
+            type="submit"
+            className="btn btn-primary mt-1"
+            style={{ width: "100%" }}
+            value="Create a ticket"
+            onClick={openTicketModal}
+          />
+        </div>
       </div>
       <TicketUpdateModal
         selectCurrentTickets={selectCurrentTickets}
@@ -50,7 +53,7 @@ function Customer() {
         onChangeTickets={onChangeTickets}
         submitTickets={submitTickets}
       />
-      <TicketCreationModal show={createTicketModal} onclose={onclose}/>
+      <TicketCreationModal show={createTicketModal} onclose={onclose} />
     </div>
   );
 }

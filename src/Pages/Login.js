@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { userSignIn, userSignUp } from "../api/auth";
-
 export default function Login() {
   const [showSignup, setshowSignup] = useState(false);
   const [userType, setUsertype] = useState("CUSTOMER");
@@ -136,28 +135,40 @@ export default function Login() {
   }
   return (
     <div
-      className=" align-items-center justify-content-center d-flex vh-100"
+      className=" align-items-center justify-content-center d-flex flex-column vh-100"
       style={{
-        background: "linear-gradient(150deg,rgb(50, 200, 90),black)",
+        background: "linear-gradient(150deg,rgb(45 235 130),black)",
       }}
     >
+      <h1 className="text-white" style={{ textShadow: "2px 2px black" }}>
+        CRM Application
+      </h1>
+      <h5 className="text-white">Customer Relationship Management</h5>
       <div
-        className="card p-3 m-3 rounded shadow"
-        style={{ width: 30 + "rem",backgroundColor:"rgb(223, 215, 215)" }}
+        className=" card p-3 m-5 shadow"
+        style={{
+          width: 30 + "rem",
+          backgroundColor: "rgb(223, 215, 215)",
+          borderRadius: "13px",
+        }}
       >
         <form onSubmit={showSignup ? onSubmitSignup : onSubmitLogin}>
-          <h3 className="text-center">{showSignup ? "Sign up" : "Login"}</h3>
-          <div className="input-group mb-2">
+          <h3 className="text-center mb-4">
+            {showSignup ? "Sign up" : "Log in to your account"}
+          </h3>
+          <div className="input-group mb-2 align-items-center text-align-center display-flex">
+            <i className="bi bi-person-fill p-1"></i>
             <input
               className="form-control"
               type="text"
               id="userId"
               value={userId}
               onChange={handleChange}
-              placeholder="userId"
+              placeholder="UserId"
             ></input>
           </div>
-          <div className="input-group mb-2">
+          <div className="input-group mb-2 align-items-center text-align-center display-flex">
+            <i className="bi bi-lock-fill p-1"></i>
             <input
               className="form-control"
               type="password"
@@ -169,7 +180,9 @@ export default function Login() {
           </div>
           {showSignup && (
             <>
-              <div className="input-group mb-2">
+              <div className="input-group mb-2 align-items-center text-align-center display-flex">
+                <i className="bi bi-person-circle p-1"></i>
+
                 <input
                   className="form-control"
                   type="text"
@@ -179,14 +192,15 @@ export default function Login() {
                   placeholder="Username"
                 ></input>
               </div>
-              <div className="input-group mb-2">
+              <div className="input-group mb-2 align-items-center text-align-center display-flex">
+                <i className="bi bi-envelope p-1"></i>
                 <input
                   className="form-control"
                   type="email"
                   id="email"
                   value={email}
                   onChange={handleChange}
-                  placeholder="Email"
+                  placeholder="Email address"
                 ></input>
               </div>
               <div className="d-flex justify-content-center mb-2">
@@ -210,14 +224,15 @@ export default function Login() {
               value={showSignup ? "Sign up" : "Log in"}
             ></input>
           </div>
+          <hr />
           <div
-            className="text-info text-center"
+            className="text-success text-center"
             onClick={toggleSignup}
             style={{ cursor: "pointer" }}
           >
             {showSignup
-              ? "Already have an account ? Signin"
-              : "Don't have an Account ? Signup"}
+              ? "Already have an account ? Log In"
+              : "Don't have an Account ? Sign Up"}
           </div>
           <div
             className={`d-flex justify-content-center align-items-center  ${

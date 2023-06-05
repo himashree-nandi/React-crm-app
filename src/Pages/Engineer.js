@@ -28,12 +28,14 @@ export default function Engineer() {
       </div>
       <div className="col" style={{ maxWidth: "100%" }}>
         <StatusDashBoard ticketDetails={ticketDetails} />
-
-        <TicketsTable
-          ticketDetails={ticketDetails}
-          editTickets={editTickets}
-          title={"TICKETS ASSIGNED TO YOU"}
-        />
+        <br />
+        <div className="m-3"style={{ fontWeight: "600" }}>
+          <TicketsTable
+            ticketDetails={ticketDetails}
+            editTickets={editTickets}
+            title={"TICKETS ASSIGNED TO YOU"}
+          />
+        </div>
       </div>
       <TicketUpdateModal
         selectCurrentTickets={selectCurrentTickets}

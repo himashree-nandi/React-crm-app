@@ -10,8 +10,10 @@ export default function Sidebar() {
   return (
     <div>
       <CSidebar unfoldable className="vh-100 bg-black">
+        <i className="bi bi-people-fill m-4"></i>
+        <i className="mb-2 bg-dark ">C.R.M </i>
         <CSidebarNav>
-          <CNavItem href="#" className="bg-dark">
+          <CNavItem href="#">
             <i className="bi bi-bar-chart-fill"></i>
           </CNavItem>
           <CNavItem href="#">
@@ -24,6 +26,12 @@ export default function Sidebar() {
               <div className="text-white mx-5 text-decoration-none">Logout</div>
             </CNavItem>
           </div>
+          <CNavItem href="#">
+            <i className="bi bi-moon-fill"></i>
+            <div className="text-white mx-5 text-decoration-none">
+              Dark mode
+            </div>
+          </CNavItem>
         </CSidebarNav>
         <CSidebarToggler />
       </CSidebar>

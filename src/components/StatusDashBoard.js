@@ -1,7 +1,6 @@
 import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import createTicketCount from "../handlers/TicketHandler";
-
 export default function StatusDashBoard(props) {
   //console.log(props.statusDetails);
   const statusDetails = createTicketCount(props.ticketDetails);
@@ -11,26 +10,36 @@ export default function StatusDashBoard(props) {
     <div className="col my-4 vh-100%">
       <div className="container">
         <h1 className="text-primary text-center">
-          <i> Welcome, {userName}</i>
+          <i
+            style={{
+              textShadow: "2px 2px white",
+              fontWeight: "650",
+              fontSize: "45px",
+            }}
+          >
+            Welcome, {userName}
+          </i>
         </h1>
-        <p className="text-center text-muted">
+        <h5 className="text-center text-muted mb-4">
           <i> Take a quick look at your {userType} stats below</i>
-        </p>
+        </h5>
         <div className="row text-center">
           <div className="col-xs-12 col-lg-3 col-md-6 my-1 ">
             <div
-              className="card rounded shadow border-bottom-primary"
+              className="card rounded shadow border-primary"
               style={{ backgroundColor: "rgb(202, 189, 254)" }}
             >
               <div className="card-body">
-                <h5>
+                <h3>
                   <i className="bi bi-pencil mx-3 align-items-center text-primary "></i>
-                  Open
+                  <i>Open</i>
                   <hr />
-                </h5>
+                </h3>
                 <div className="row">
                   <div className="col">
-                    <h2>{statusDetails.open}</h2>
+                    <h1>
+                      <i>{statusDetails.open}</i>
+                    </h1>
                   </div>
                   <div className="col">
                     <div style={{ width: "40px", height: "40px" }}>
@@ -49,18 +58,20 @@ export default function StatusDashBoard(props) {
           </div>
           <div className="col-xs-12 col-lg-3 col-md-6 my-1 ">
             <div
-              className="card rounded shadow border-bottom-danger"
+              className="card rounded shadow border-danger"
               style={{ backgroundColor: "rgb(254, 226, 159)" }}
             >
               <div className="card-body">
-                <h5>
+                <h3>
                   <i className="bi bi-lightning-charge mx-3 align-items-center text-danger "></i>
-                  Progress
+                  <i> Progress</i>
                   <hr />
-                </h5>
+                </h3>
                 <div className="row">
                   <div className="col">
-                    <h2>{statusDetails.progress}</h2>
+                    <h1>
+                      <i>{statusDetails.progress}</i>
+                    </h1>
                   </div>
                   <div className="col">
                     <div style={{ width: "40px", height: "40px" }}>
@@ -79,18 +90,20 @@ export default function StatusDashBoard(props) {
           </div>
           <div className="col-xs-12 col-lg-3 col-md-6 my-1 ">
             <div
-              className="card rounded shadow border-bottom-success"
+              className="card rounded shadow border-success"
               style={{ backgroundColor: "rgb(195, 229, 168)" }}
             >
               <div className="card-body">
-                <h5>
+                <h3>
                   <i className="bi bi-check-circle mx-3 align-items-center text-success "></i>
-                  Closed
+                  <i>Closed</i>
                   <hr />
-                </h5>
+                </h3>
                 <div className="row">
                   <div className="col">
-                    <h2>{statusDetails.closed}</h2>
+                    <h1>
+                      <i>{statusDetails.closed}</i>
+                    </h1>
                   </div>
                   <div className="col">
                     <div style={{ width: "40px", height: "40px" }}>
@@ -109,18 +122,20 @@ export default function StatusDashBoard(props) {
           </div>
           <div className="col-xs-12 col-lg-3 col-md-6 my-1 ">
             <div
-              className="card rounded shadow border-bottom-dark"
+              className="card rounded shadow border-dark"
               style={{ backgroundColor: "rgb(232, 223, 223)" }}
             >
               <div className="card-body">
-                <h5>
+                <h3>
                   <i className="bi bi-slash-circle mx-3 align-items-center text-dark "></i>
-                  Blocked
+                  <i>Blocked</i>
                   <hr />
-                </h5>
+                </h3>
                 <div className="row">
                   <div className="col">
-                    <h2>{statusDetails.blocked}</h2>
+                    <h1>
+                      <i>{statusDetails.blocked}</i>
+                    </h1>
                   </div>
                   <div className="col">
                     <div style={{ width: "40px", height: "40px" }}>
