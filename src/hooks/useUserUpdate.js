@@ -3,6 +3,12 @@ import { updateUsers } from "../api/user";
 export const useUserUpdate = () => {
   const [userUpdateModal, setUserUpdateModal] = useState(false);
   const [selectCurrentUsers, setSelectCurrentUser] = useState(false);
+  // function for open the user update modal
+  const openUserModal = () => {
+
+    setUserUpdateModal(true);
+  };
+  console.log(openUserModal)
   // function for edit the user detail
   const editUsers = (userDetails) => {
     //console.log(userDetails);
@@ -38,5 +44,13 @@ export const useUserUpdate = () => {
         console.log(err.message);
       });
   };
-  return [editUsers,closeUserUpdateModal,changeUserDetails,submitUserDetail,userUpdateModal,selectCurrentUsers];
+  return [
+    openUserModal,
+    editUsers,
+    closeUserUpdateModal,
+    changeUserDetails,
+    submitUserDetail,
+    userUpdateModal,
+    selectCurrentUsers,
+  ];
 };

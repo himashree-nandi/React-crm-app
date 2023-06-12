@@ -18,17 +18,18 @@ function App() {
               element={<Login />}></Route>
             <Route
               path="/customer"
-              page="customer"
               element={<Auth 
               ><Customer /></Auth>}></Route>
             <Route
               path="/engineer"
-              page="engineer"
               element={<Auth 
               ><Engineer /></Auth>}></Route>
             <Route
-              path="/admin"
+              path="/admin/:userId?"
               element={<Auth><Admin /></Auth>}></Route>
+               {/* <Route
+              path="/admin"
+              element={<Auth><Admin /></Auth>}></Route> */}
           </Routes>
         </Router>
       </ThemeProvider>

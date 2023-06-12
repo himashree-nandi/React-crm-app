@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import StatusDashBoard from "../components/StatusDashBoard";
 import { useFetchTickets } from "../hooks/useFetchTickets";
@@ -9,6 +9,7 @@ import TicketsTable from "../components/TicketsTable/ticketsTable";
 import TicketUpdateModal from "../components/ticketspdateModal/ticketUpdateModal";
 import UsersTable from "../components/usersTable/usersTable";
 import UserUpdateModal from "../components/userUpdateModal/userUpdateModal";
+import { useLocation } from "react-router-dom";
 export default function Admin() {
   const [ticketDetails] = useFetchTickets();
   const [userDetails] = useFetchUsers();
@@ -20,6 +21,7 @@ export default function Admin() {
     submitUserDetail,
     userUpdateModal,
     selectCurrentUsers,
+    openUserModal,
   ] = useUserUpdate();
 
   const [
@@ -31,11 +33,22 @@ export default function Admin() {
     submitTickets,
   ] = useTicketUpdate();
 
+  const location = useLocation();
+  useEffect(() => {
+    const userid = location.pathname.split("/")[2];
+    if (!userid) {
+      return;
+    }
+    console.log(userid);
+    console.log(openUserModal)
+    openUserModal();
+  
+  }, []);
   return (
     <div
       className="row text-align-center"
       style={{
-        background: "linear-gradient(to right ,rgb(173, 222, 232),pink)",
+        background: "linear-gradient(to right ,rgb(173, 222, 232),white)",
       }}
     >
       <div className="col-1">

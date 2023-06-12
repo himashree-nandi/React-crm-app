@@ -5,17 +5,18 @@ import { useLocation } from "react-router-dom";
 const Authorization = (props) => {
   const location = useLocation(); // uselocation hook to find the path of the page
   //console.log(location)
-  const page = location.pathname.slice(1);
+  const page = location.pathname.split("/")[1];
+  console.log(page);
   const userType = localStorage.getItem("userType");
   if (!userType) {
     return <UnAuthenticated />;
   }
   var requiredUserType = null;
-  if (page === "admin") {
+  if (page.toUpperCase() === "ADMIN") {
     requiredUserType = constants.constUserTypes.admin;
-  } else if (page === "engineer") {
+  } else if (page.toUpperCase() === "ENGINEER") {
     requiredUserType = constants.constUserTypes.engineer;
-  } else if (page === "customer") {
+  } else if (page.toUpperCase() === "CUSTOMER") {
     requiredUserType = constants.constUserTypes.customer;
   }
 
