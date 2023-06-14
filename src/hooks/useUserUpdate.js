@@ -1,22 +1,29 @@
 import { useState } from "react";
 import { updateUsers } from "../api/user";
+import { useNavigate, useLocation } from "react-router-dom";
 export const useUserUpdate = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [userUpdateModal, setUserUpdateModal] = useState(false);
   const [selectCurrentUsers, setSelectCurrentUser] = useState(false);
   // function for open the user update modal
-  const openUserModal = () => {
-
-    setUserUpdateModal(true);
-  };
-  console.log(openUserModal)
+  // const openUserModal = () => {
+  //   setSelectCurrentUser(userDetails);
+  //   setUserUpdateModal(true);
+  // };
+  // console.log(openUserModal);
   // function for edit the user detail
   const editUsers = (userDetails) => {
     //console.log(userDetails);
     setSelectCurrentUser(userDetails);
     setUserUpdateModal(true);
+    const url = `${location.pathname}/${userDetails.userId}`;
+    navigate(url);
   };
   const closeUserUpdateModal = () => {
     setUserUpdateModal(false);
+    const url = `/admin`;
+    navigate(url);
   };
   // onChange event for update user detail
   const changeUserDetails = (e) => {
@@ -29,6 +36,8 @@ export const useUserUpdate = () => {
   // onsubmit function for submit update user detail
   const submitUserDetail = (e) => {
     e.preventDefault();
+    const url = `/admin`;
+    navigate(url);
     const userData = {
       _id: selectCurrentUsers._id,
       status: selectCurrentUsers.userStatus,
@@ -44,8 +53,9 @@ export const useUserUpdate = () => {
         console.log(err.message);
       });
   };
+
   return [
-    openUserModal,
+    // openUserModal,
     editUsers,
     closeUserUpdateModal,
     changeUserDetails,

@@ -21,7 +21,7 @@ export default function Admin() {
     submitUserDetail,
     userUpdateModal,
     selectCurrentUsers,
-    openUserModal,
+    // openUserModal,
   ] = useUserUpdate();
 
   const [
@@ -40,9 +40,8 @@ export default function Admin() {
       return;
     }
     console.log(userid);
-    console.log(openUserModal)
-    openUserModal();
-  
+    // console.log(openUserModal)
+      // openUserModal()
   }, []);
   return (
     <div

@@ -24,12 +24,9 @@ function App() {
               path="/engineer"
               element={<Auth 
               ><Engineer /></Auth>}></Route>
-            <Route
-              path="/admin/:userId?"
-              element={<Auth><Admin /></Auth>}></Route>
-               {/* <Route
-              path="/admin"
-              element={<Auth><Admin /></Auth>}></Route> */}
+           
+              <Route path="/admin/:userId"element={<Auth> <Admin /></Auth>}/>
+              
           </Routes>
         </Router>
       </ThemeProvider>
