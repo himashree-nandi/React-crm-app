@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Modal } from "react-bootstrap";
-
+import { ThemeContext } from "../../App";
 export default function UserUpdateModal(props) {
   const {
     closeUserUpdateModal,
@@ -9,13 +9,15 @@ export default function UserUpdateModal(props) {
     userUpdateModal,
     selectCurrentUsers,
   } = props;
+  const value=useContext(ThemeContext)
+  const theme=value.theme
   return (
     <div>
       <Modal show={userUpdateModal} onHide={closeUserUpdateModal}>
         <Modal.Header closeButton>
           <Modal.Title>EDIT DETAILS</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{backgroundColor:(theme==="light"?"white":"black")}}>
           <form onSubmit={submitUserDetail}>
             <div className="card submit mb-2 ">
               <h6>

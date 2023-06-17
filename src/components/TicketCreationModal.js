@@ -1,5 +1,7 @@
 import { Button, Modal } from "react-bootstrap";
 import { createNewTickets } from "../api/tickets";
+import { useContext } from "react";
+import { ThemeContext } from "../App";
 export default function TicketCreationModal(props) {
   const submitTickets = (e) => {
     e.preventDefault();
@@ -17,12 +19,14 @@ export default function TicketCreationModal(props) {
         console.log(err);
       });
   };
+  const value=useContext(ThemeContext)
+  const theme=value.theme
   return (
       <Modal show={props.show} onHide={props.onclose}>
         <Modal.Header closeButton>
           <Modal.Title>CREATE A NEW TICKET</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className={theme==="light"?"bg-light":"bg-black"}>
           <form onSubmit={submitTickets}>
             <div className="input-group mb-2">
               <span className="input-group-text">Title </span>

@@ -157,7 +157,6 @@ export default function Login() {
             {showSignup ? "Sign up" : "Log in to your account"}
           </h3>
           <div className="input-group mb-2 align-items-center text-align-center display-flex">
-            <i className="bi bi-person-fill p-1"></i>
             <input
               className="form-control"
               type="text"
@@ -168,7 +167,6 @@ export default function Login() {
             ></input>
           </div>
           <div className="input-group mb-2 align-items-center text-align-center display-flex">
-            <i className="bi bi-lock-fill p-1"></i>
             <input
               className="form-control"
               type="password"
@@ -181,8 +179,6 @@ export default function Login() {
           {showSignup && (
             <>
               <div className="input-group mb-2 align-items-center text-align-center display-flex">
-                <i className="bi bi-person-circle p-1"></i>
-
                 <input
                   className="form-control"
                   type="text"
@@ -193,7 +189,6 @@ export default function Login() {
                 ></input>
               </div>
               <div className="input-group mb-2 align-items-center text-align-center display-flex">
-                <i className="bi bi-envelope p-1"></i>
                 <input
                   className="form-control"
                   type="email"

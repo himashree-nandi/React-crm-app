@@ -19,6 +19,7 @@ export default function UsersTable(props) {
         sorting: true,
         filtering: true,
         rowStyle: { cursor: "pointer" },
+        headerStyle:{ backgroundColor:"rgb(47, 226, 131)"}
       }}
     />
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import StatusDashBoard from "../components/StatusDashBoard";
 import { useFetchTickets } from "../hooks/useFetchTickets";
@@ -10,10 +10,12 @@ import TicketUpdateModal from "../components/ticketspdateModal/ticketUpdateModal
 import UsersTable from "../components/usersTable/usersTable";
 import UserUpdateModal from "../components/userUpdateModal/userUpdateModal";
 import { useLocation } from "react-router-dom";
+import { ThemeContext } from "../App";
 export default function Admin() {
   const [ticketDetails] = useFetchTickets();
   const [userDetails] = useFetchUsers();
-
+  const value = useContext(ThemeContext);
+  const theme = value.theme;
   const [
     editUsers,
     closeUserUpdateModal,
@@ -21,7 +23,7 @@ export default function Admin() {
     submitUserDetail,
     userUpdateModal,
     selectCurrentUsers,
-    // openUserModal,
+    setSelectCurrentUser,
   ] = useUserUpdate();
 
   const [
@@ -35,19 +37,25 @@ export default function Admin() {
 
   const location = useLocation();
   useEffect(() => {
-    const userid = location.pathname.split("/")[2];
-    if (!userid) {
+    const userId = location.pathname.split("/")[2];
+    if (!userId) {
       return;
     }
-    console.log(userid);
-    // console.log(openUserModal)
-      // openUserModal()
+    console.log(userId);
+    // const user = userDetails.find((user) => user.userId === userId);
+    // if (!user) {
+    //   return;
+    // }
+    // setSelectCurrentUser(user);
   }, []);
   return (
     <div
       className="row text-align-center"
       style={{
-        background: "linear-gradient(to right ,rgb(173, 222, 232),white)",
+        background:
+          theme === "light"
+            ? "linear-gradient(to right ,rgb(173, 222, 232),white)"
+            : "black",
       }}
     >
       <div className="col-1">

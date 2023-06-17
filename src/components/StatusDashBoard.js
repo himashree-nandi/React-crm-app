@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import createTicketCount from "../handlers/TicketHandler";
+import { ThemeContext } from "../App";
 export default function StatusDashBoard(props) {
   //console.log(props.statusDetails);
   const statusDetails = createTicketCount(props.ticketDetails);
   const userName = localStorage.getItem("name");
   const userType = localStorage.getItem("userType");
+  const value = useContext(ThemeContext);
+  const theme = value.theme;
   return (
     <div className="col my-4 vh-100%">
       <div className="container">
-        <h1 className="text-primary text-center">
+        <div
+          className="d-flex mb-2"
+          style={{ justifyContent: "space-between" }}
+        ></div>
+        <h1
+          className={
+            theme === "light"
+              ? "text-primary text-center"
+              : "text-white text center"
+          }
+        >
           <i
             style={{
-              textShadow: "2px 2px white",
               fontWeight: "650",
-              fontSize: "45px",
+              fontSize: "40px",
             }}
           >
             Welcome, {userName}
           </i>
         </h1>
-        <h5 className="text-center text-muted mb-4">
+        <h5
+          className={
+            theme === "light"
+              ? "text-center text-muted mb-4"
+              : "text-center text-white mb-4"
+          }
+        >
           <i> Take a quick look at your {userType} stats below</i>
         </h5>
+
         <div className="row text-center">
           <div className="col-xs-12 col-lg-3 col-md-6 my-1 ">
             <div

@@ -6,7 +6,7 @@ export const useTicketUpdate = () => {
   const editTickets = (ticketDetails) => {
     //console.log(ticketDetails);
     setTicketUpdateModal(true);
-    setSelectCurrentTickets(ticketDetails);
+    setSelectCurrentTickets({ ...ticketDetails });
   };
   // function for close the modal
   const closeModal = () => {

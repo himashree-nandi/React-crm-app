@@ -18,6 +18,7 @@ export default function TicketsTable(props) {
       options={{
         sorting: true,
         rowStyle: { cursor: "pointer" },
+        headerStyle:{ backgroundColor:"rgb(47, 226, 131)"}
       }}
     />
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import {useContext,React} from "react";
 import Sidebar from "../components/Sidebar";
 import StatusDashBoard from "../components/StatusDashBoard";
 import { useFetchTickets } from "../hooks/useFetchTickets";
@@ -7,6 +7,7 @@ import TicketUpdateModal from "../components/ticketspdateModal/ticketUpdateModal
 import TicketsTable from "../components/TicketsTable/ticketsTable";
 import TicketCreationModal from "../components/TicketCreationModal";
 import useCreateTicket from "../hooks/useCreateTicket";
+import { ThemeContext } from "../App";
 function Customer() {
   const [ticketDetails] = useFetchTickets();
   const [
@@ -18,11 +19,16 @@ function Customer() {
     submitTickets,
   ] = useTicketUpdate();
   const { onclose, createTicketModal, openTicketModal } = useCreateTicket();
+  const value = useContext(ThemeContext);
+  const theme = value.theme;
   return (
     <div
       className="row text-align-center"
       style={{
-        background: "linear-gradient(to right ,white,rgb(115,219,222))",
+        background:
+          theme === "light"
+            ? "linear-gradient(to right ,rgb(173, 222, 232),white)"
+            : "black",
       }}
     >
       <div className="col-1">
@@ -53,7 +59,7 @@ function Customer() {
         onChangeTickets={onChangeTickets}
         submitTickets={submitTickets}
       />
-      <TicketCreationModal show={createTicketModal} onclose={onclose} />
+      <TicketCreationModal useFetchTickets={useFetchTickets} show={createTicketModal} onclose={onclose} />
     </div>
   );
 }

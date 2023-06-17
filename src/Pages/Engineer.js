@@ -1,4 +1,6 @@
-import React from "react";
+import { useContext, React } from "react";
+import { ThemeContext } from "../App";
+
 import Sidebar from "../components/Sidebar";
 import StatusDashBoard from "../components/StatusDashBoard";
 import { useFetchTickets } from "../hooks/useFetchTickets";
@@ -15,12 +17,16 @@ export default function Engineer() {
     onChangeTickets,
     submitTickets,
   ] = useTicketUpdate();
-
+  const value = useContext(ThemeContext);
+  const theme = value.theme;
   return (
     <div
       className="row text-align-center"
       style={{
-        background: "linear-gradient(to right ,white,rgb(115,219,222))",
+        background:
+          theme === "light"
+            ? "linear-gradient(to right ,rgb(173, 222, 232),white)"
+            : "black",
       }}
     >
       <div className="col-1">
@@ -29,7 +35,7 @@ export default function Engineer() {
       <div className="col" style={{ maxWidth: "100%" }}>
         <StatusDashBoard ticketDetails={ticketDetails} />
         <br />
-        <div className="m-3"style={{ fontWeight: "600" }}>
+        <div className="m-3" style={{ fontWeight: "600" }}>
           <TicketsTable
             ticketDetails={ticketDetails}
             editTickets={editTickets}

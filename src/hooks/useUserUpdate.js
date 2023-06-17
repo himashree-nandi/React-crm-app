@@ -6,12 +6,6 @@ export const useUserUpdate = () => {
   const location = useLocation();
   const [userUpdateModal, setUserUpdateModal] = useState(false);
   const [selectCurrentUsers, setSelectCurrentUser] = useState(false);
-  // function for open the user update modal
-  // const openUserModal = () => {
-  //   setSelectCurrentUser(userDetails);
-  //   setUserUpdateModal(true);
-  // };
-  // console.log(openUserModal);
   // function for edit the user detail
   const editUsers = (userDetails) => {
     //console.log(userDetails);
@@ -27,7 +21,6 @@ export const useUserUpdate = () => {
   };
   // onChange event for update user detail
   const changeUserDetails = (e) => {
-    //console.log(e.target.value);
     if (e.target.name === "status") {
       selectCurrentUsers.userStatus = e.target.value;
     }
@@ -55,12 +48,12 @@ export const useUserUpdate = () => {
   };
 
   return [
-    // openUserModal,
     editUsers,
     closeUserUpdateModal,
     changeUserDetails,
     submitUserDetail,
     userUpdateModal,
     selectCurrentUsers,
+    setSelectCurrentUser
   ];
 };
