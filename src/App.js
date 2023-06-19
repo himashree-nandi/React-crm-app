@@ -60,7 +60,7 @@ function App() {
               }
             />
           </Routes>
-        </Router>\
+        </Router>
         </ThemeContext.Provider>
       </ThemeProvider>
     </div>

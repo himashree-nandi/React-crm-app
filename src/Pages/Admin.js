@@ -23,7 +23,6 @@ export default function Admin() {
     submitUserDetail,
     userUpdateModal,
     selectCurrentUsers,
-    setSelectCurrentUser,
   ] = useUserUpdate();
 
   const [
@@ -62,7 +61,7 @@ export default function Admin() {
         <Sidebar />
       </div>
       <div className="col my-4 vh-100%">
-        <div className="container">
+        <div className="container align-items-center justify-content-center">
           <StatusDashBoard ticketDetails={ticketDetails} />
           <br />
           <div
