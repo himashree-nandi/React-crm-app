@@ -12,7 +12,7 @@ export const useFetchTickets = () => {
     getAllTickets()
       .then((res) => {
         setTicketDetails(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => {
         console.log(err);

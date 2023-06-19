@@ -40,7 +40,7 @@ export default function Admin() {
     if (!userId) {
       return;
     }
-    console.log(userId);
+    // console.log(userId);
     // const user = userDetails.find((user) => user.userId === userId);
     // if (!user) {
     //   return;
@@ -53,7 +53,7 @@ export default function Admin() {
       style={{
         background:
           theme === "light"
-            ? "linear-gradient(to right ,rgb(173, 222, 232),white)"
+            ? "linear-gradient(to right ,white,rgb(173, 222, 232))"
             : "black",
       }}
     >

@@ -90,7 +90,7 @@ export default function Login() {
     //  Api call
     userSignUp(data)
       .then((res) => {
-        console.log(res);
+      // console.log(res);
         setError(false);
         setMessage("SignUp successful");
         toggleSignup();

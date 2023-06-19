@@ -25,7 +25,7 @@ export default function Engineer() {
       style={{
         background:
           theme === "light"
-            ? "linear-gradient(to right ,rgb(173, 222, 232),white)"
+            ? "linear-gradient(to right ,white,rgb(173, 222, 232))"
             : "black",
       }}
     >
